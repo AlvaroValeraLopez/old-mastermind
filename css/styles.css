@@ -5,10 +5,17 @@ body{
 
 header, footer{
     text-align: center;
-    margin: auto 0px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+main > form{
+    margin: 3% 0;
+    align-self: center;
 }
 
 input, select{
     font-family: 'Poppins', 'sans-serif';
-
 }
