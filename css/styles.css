@@ -66,7 +66,7 @@ input, select{
 /* ID's */
 #errorPanel{
     height: 75px;
-    display: flex;
+    display: none;
     margin: 25px 0;
     font-weight: 300;
     color: #fd0c49;
