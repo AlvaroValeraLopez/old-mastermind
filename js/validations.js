@@ -21,18 +21,23 @@ function validateForm(event){
         event.preventDefault();
         errorMsg.innerText ="El campo Nick no puede estar vacio.";
         document.getElementById("errorPanel").style.display = "flex";
-        
+        return false;
     }else if(!validateEmail()){
         emailField.focus();
         event.preventDefault();
         errorMsg.innerText ="El correo electrónico introducido no es válido.";
         document.getElementById("errorPanel").style.display = "flex";
+        return false;
     }else if(!validateSize()){
         sizeSelect.focus();
         event.preventDefault();
         errorMsg.innerText ="El campo Size no puede estar vacio.";
         document.getElementById("errorPanel").style.display = "flex";
+        return false;
     }
+
+    userData(nickField);
+    return true;
 }
 
 /* INICIALIZACIÓN DE CONSTANTES. */
