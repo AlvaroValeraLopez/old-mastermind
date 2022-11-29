@@ -16,14 +16,11 @@ function validateForm(event){
         nickField.focus();
         event.preventDefault();
         console.log("El campo nick no ha sido rellenado correctamente.");
-        return false;
     }else if(!validateSize()){
         sizeSelect.focus();
         event.preventDefault();
         console.log("El campo nick no ha sido rellenado correctamente.");
-        return false;
     }
-    return true;
 }
 
 /* INICIALIZACIÓN DE CONSTANTES. */

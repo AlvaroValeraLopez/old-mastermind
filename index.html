@@ -14,41 +14,48 @@
     </head>
 
     <body>
-        <!-- CABECERA -->
-        <header>
-            <img src="./resources/logo-mastermind.png" alt="Logo Masterdots.">
-        </header>
+        <div class="container">
+            <!-- CABECERA -->
+            <header>
+                <img src="./resources/logo-mastermind.png" alt="Logo Masterdots.">
+            </header>
 
-        <!-- FORMULARIO DE USUARIO. -->
-        <main>
-            <form action="#" id="form">
-                <div class="formItem">
-                    <label for="name">Enter your name: </label>
-                    <input type="text" name="nick" value="@" id="nicka" readonly>
-                    <input type="text" name="nick" id="nick">
+            <!-- FORMULARIO DE USUARIO. -->
+            <main>
+                <div id="errorPanel">
+                    <p>Prueba de mensaje de error.</p>
                 </div>
-                <div class="formItem">
-                    <label for="size">Tamaño del juego. </label>
-                    <select name="size" id="size">
-                        <option value="">--Por favor, elige un tamaño.--</option>
-                        <option value="1">4x4</option>
-                        <option value="2">5x5</option>
-                        <option value="3">6x6</option>
-                    </select>
-                </div>
-                <div class="formItem">
-                    <input type="submit" value="PLAY" id="playBtn">
-                </div>
-            </form>
-        </main>
+                <form action="#" id="form">
+                    <div class="formItem">
+                        <label for="name">Enter your name: </label>
+                        <input type="text" name="nick" value="@" id="nicka" readonly>
+                        <input type="text" name="nick" id="nick">
+                    </div>
+                    <div class="formItem">
+                        <label for="size">Tamaño del juego. </label>
+                        <select name="size" id="size">
+                            <option value="">--Por favor, elige un tamaño.--</option>
+                            <option value="1">4x4</option>
+                            <option value="2">5x5</option>
+                            <option value="3">6x6</option>
+                        </select>
+                    </div>
+                    <div class="formItem">
+                        <input type="submit" value="PLAY" id="playBtn">
+                    </div>
+                </form>
+            </main>
 
-        <!-- PIE DE PAGINA. -->
-        <footer>
-            <p>Curso FrontEnd, Css y JS.</p>
-        </footer>
+            <!-- PIE DE PAGINA. -->
+            <footer>
+                <p>Curso FrontEnd, Css y JS.</p>
+            </footer>
+
+        </div>
         
         <!-- JAVASCRIPT. -->
-        <script src="./js/validations.js"></script> 
+        <script src="./js/validations.js"></script>
+
     </body>
 
 </html>
