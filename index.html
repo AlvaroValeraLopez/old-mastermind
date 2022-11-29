@@ -21,15 +21,15 @@
 
         <!-- FORMULARIO DE USUARIO. -->
         <main>
-            <form action="">
+            <form action="#" id="form">
                 <div class="formItem">
                     <label for="name">Enter your name: </label>
                     <input type="text" name="nick" value="@" id="nicka" readonly>
                     <input type="text" name="nick" id="nick">
                 </div>
                 <div class="formItem">
-                    <label for="tamanio">Tamaño del juego. </label>
-                    <select name="tamanio" id="tamanio">
+                    <label for="size">Tamaño del juego. </label>
+                    <select name="size" id="size">
                         <option value="">--Por favor, elige un tamaño.--</option>
                         <option value="1">4x4</option>
                         <option value="2">5x5</option>
@@ -37,7 +37,7 @@
                     </select>
                 </div>
                 <div class="formItem">
-                    <input type="submit" value="PLAY">
+                    <input type="submit" value="PLAY" id="playBtn">
                 </div>
             </form>
         </main>
@@ -48,7 +48,7 @@
         </footer>
         
         <!-- JAVASCRIPT. -->
-        <script src="./js/formValidations.js"></script> 
+        <script src="./js/validations.js"></script> 
     </body>
 
 </html>
