@@ -11,6 +11,10 @@ function validateSize(){
     return true;
 }
 
+function validateEmail(){
+    return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailField.value) && emailField.value.length != 0; 
+}
+
 function validateForm(event){
     if(!validateNick()){
         nickField.focus();
@@ -18,6 +22,11 @@ function validateForm(event){
         errorMsg.innerText ="El campo Nick no puede estar vacio.";
         document.getElementById("errorPanel").style.display = "flex";
         
+    }else if(!validateEmail()){
+        emailField.focus();
+        event.preventDefault();
+        errorMsg.innerText ="El correo electrónico introducido no es válido.";
+        document.getElementById("errorPanel").style.display = "flex";
     }else if(!validateSize()){
         sizeSelect.focus();
         event.preventDefault();
@@ -30,6 +39,7 @@ function validateForm(event){
 const form = document.getElementById('form');
 const nickField = document.getElementById('nick');
 const sizeSelect = document.getElementById('size');
+const emailField = document.getElementById('email');
 const errorMsg = document.getElementById('errorMsg');
 
 /* CREACIÓN DEL LISTENER AL SUBMIT. */
