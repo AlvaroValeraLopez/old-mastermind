@@ -15,27 +15,27 @@ function validateEmail(){
     return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailField.value) && emailField.value.length != 0; 
 }
 
-function validateForm(event){
-    if(!validateNick()){
-        nickField.focus();
-        event.preventDefault();
-        errorMsg.innerText ="El campo Nick no puede estar vacio.";
-        document.getElementById("errorPanel").style.display = "flex";
-        return false;
-    }else if(!validateEmail()){
-        emailField.focus();
-        event.preventDefault();
-        errorMsg.innerText ="El correo electrónico introducido no es válido.";
-        document.getElementById("errorPanel").style.display = "flex";
-        return false;
-    }else if(!validateSize()){
-        sizeSelect.focus();
-        event.preventDefault();
-        errorMsg.innerText ="El campo Size no puede estar vacio.";
+function printErrorMsg(field = null, event = null){
+    
+    let error = sessionStorage.getItem('error');
+
+    if(field != null) field.focus();
+    if(event != null) event.preventDefault();
+    if(error != null){
+        errorMsg.innerText = error;
+        sessionStorage.removeItem('error');
         document.getElementById("errorPanel").style.display = "flex";
         return false;
     }
 
+    return true;
+}
+function validateForm(event){
+
+    if(!validateNick()) return printErrorMsg(nickField, event);
+    else if(!validateEmail()) return printErrorMsg(emailField, event);
+    else if(!validateSize()) return printErrorMsg(sizeSelect, event);
+        
     userData(nickField);
     return true;
 }
@@ -46,6 +46,9 @@ const nickField = document.getElementById('nick');
 const sizeSelect = document.getElementById('size');
 const emailField = document.getElementById('email');
 const errorMsg = document.getElementById('errorMsg');
+
+/* VALIDAMOS QUE NO EXISTA NINGUN ERROR. */
+printErrorMsg();
 
 /* CREACIÓN DEL LISTENER AL SUBMIT. */
 form.addEventListener('submit', validateForm);

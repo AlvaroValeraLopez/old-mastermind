@@ -1,1 +1,2 @@
-mostrarDatosUsuario();
+getUserData();
+if(!validateNickNotNull()) location="../index.html";
