@@ -1,9 +1,9 @@
-/* INICIALIZACIÓN DE CONSTANTES. */
-const form = document.getElementById('form');
-const nickField = document.getElementById('nick');
-const sizeSelect = document.getElementById('size');
-const emailField = document.getElementById('email');
-const errorMsg = document.getElementById('errorMsg');
+/* DECLARACIÓN DE VARIABLES GLOBALES. */
+var form;
+var nickField;
+var sizeSelect;
+var emailField;
+var errorMsg;
 
 
 
@@ -21,6 +21,7 @@ function validateSize(){
 function validateEmail(){
     return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(emailField.value) && emailField.value.length != 0; 
 }
+
 function printErrorMsg(field = null, event = null){
     
     let error = sessionStorage.getItem('error');
@@ -36,7 +37,6 @@ function printErrorMsg(field = null, event = null){
 
     return true;
 }
-
 function validateForm(event){
 
     if(!validateNick()) return printErrorMsg(nickField, event);
@@ -47,11 +47,19 @@ function validateForm(event){
     createHistorical(nickField.value)
     return true;
 }
+function getElements(){
+    form = document.getElementById('form');
+    nickField = document.getElementById('nick');
+    sizeSelect = document.getElementById('size');
+    emailField = document.getElementById('email');
+    errorMsg = document.getElementById('errorMsg');
+}
+function loadedDOM(){
+
+    getElements();
+    printErrorMsg();
+    form.addEventListener('submit', validateForm);
+}
 
 
-
-/* VALIDAMOS QUE NO EXISTA NINGUN ERROR. */
-printErrorMsg();
-
-/* CREACIÓN DEL LISTENER AL SUBMIT. */
-form.addEventListener('submit', validateForm);
+document.addEventListener('DOMContentLoaded', loadedDOM);
