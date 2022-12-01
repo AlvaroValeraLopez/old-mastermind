@@ -16,3 +16,18 @@ function validateNickNotNull(){
     }
     return true;
 }
+
+function createNewRegister(nick){
+    return {
+        user : nick,
+        date : Date.now()
+    }
+}
+function createHistorical(nick){
+    let historicalStorage = localStorage.getItem('historical');
+    let historical;
+
+    historicalStorage == null ? historical = [] : historical = JSON.parse(historicalStorage);
+    historical.push(createNewRegister(nick));
+    localStorage.setItem('historical', JSON.stringify(historical));
+}
