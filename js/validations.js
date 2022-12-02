@@ -4,7 +4,9 @@ var nickField;
 var sizeSelect;
 var emailField;
 var errorMsg;
-
+var avatarIcons;
+var choosenAvatar;
+var imgItem;
 
 
 /* CREACIÓN DE LAS FUNCIONES. */
@@ -58,8 +60,26 @@ function loadedDOM(){
 
     getElements();
     printErrorMsg();
+    addEventListenerToAvatars();
     form.addEventListener('submit', validateForm);
 }
 
+function imgMovement(event){
+    imgItem = event.target;
+    console.log(imgItem.src);
+}
+function chooseAvatar(event){
+    choosenAvatar.src = imgItem.src;
+}
+function addEventListenerToAvatars(){
+    avatarIcons = Array.from(document.getElementsByClassName('avatarIcon'));
+    choosenAvatar = document.getElementById('choosenAvatar');
+
+    avatarIcons.forEach(avatar => {
+        avatar.addEventListener('dragstart', imgMovement);
+    });
+    choosenAvatar.addEventListener('dragover', event => {event.preventDefault()});
+    choosenAvatar.addEventListener('drop', chooseAvatar);
+}
 
 document.addEventListener('DOMContentLoaded', loadedDOM);
